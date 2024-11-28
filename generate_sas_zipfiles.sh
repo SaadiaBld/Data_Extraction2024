@@ -3,7 +3,7 @@
 # Variables nécessaires
 STORAGE_ACCOUNT="datalakedeviavals"   
 CONTAINER_NAME="data"                 
-BLOB_NAMES=("machine_learning/train.csv.zip" "machine_learning/test.csv.zip") # Fichiers à traiter
+BLOB_NAMES=("machine_learning/reviews.zip") # Fichiers à traiter
 PERMISSIONS="r"                       # Permissions, ici "r" pour lecture
 START_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")  # Heure actuelle en UTC
 EXPIRY_TIME=$(date -u -d "+24 hours" +"%Y-%m-%dT%H:%M:%SZ") # Expiration dans 24 heures
