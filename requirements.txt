@@ -8,3 +8,5 @@ azure-storage-blob
 azure-identity
 pandas
 pyarrow
+requests
+duckdb

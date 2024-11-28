@@ -188,5 +188,10 @@ poetry.toml
 # LSP config files
 pyrightconfig.json
 
-# End of https://www.toptal.com/developers/gitignore/api/linux,python
+#Fichiers et dossiers crées pendant l'exécution des scripts
 db_files/
+parquet_files/
+images/
+essais/
+metadata/
+essais/python_azure.py
