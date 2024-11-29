@@ -195,3 +195,5 @@ images/
 essais/
 metadata/
 essais/python_azure.py
+extracted_files/
+./reviews.zip

@@ -45,4 +45,45 @@ for BLOB_NAME in "${BLOB_NAMES[@]}"; do
     # Afficher l'URL SAS
     echo "URL SAS générée pour $BLOB_NAME :"
     echo $SAS_URL
+
+    # Lancer le téléchargement automatique
+    wget "$SAS_URL" -O "$(basename $BLOB_NAME)"
+    if [ $? -eq 0 ]; then
+        echo "Téléchargement de $BLOB_NAME réussi."
+    else
+        echo "Erreur lors du téléchargement de $BLOB_NAME."
+    fi
+
+    # Décompresser le fichier ZIP téléchargé
+    if [[ "$(basename $BLOB_NAME)" == *.zip ]]; then
+        unzip "$(basename $BLOB_NAME)" -d "extracted_files/"
+        if [ $? -eq 0 ]; then
+            echo "Décompression réussie pour $(basename $BLOB_NAME)."
+        else
+            echo "Erreur lors de la décompression de $(basename $BLOB_NAME)."
+        fi
+    fi
+
+    #supprimer le fichier téléchargé (le fichier zip)
+    rm "$(basename $BLOB_NAME)"
+    if [ $? -eq 0 ]; then
+        echo "Fichier $(basename $BLOB_NAME) supprimé avec succès."
+    else
+        echo "Erreur lors de la suppression du fichier $(basename $BLOB_NAME)."
+    fi
 done
+
+# Parcourir le dossier "extracted_files" pour trouver des fichiers .tgz et les décompresser
+for TGZ_FILE in extracted_files/*.tgz; do
+    if [ -f "$TGZ_FILE" ]; then
+        # Décompresser le fichier .tgz trouvé
+        tar -xzvf "$TGZ_FILE" -C "extracted_files/"
+        if [ $? -eq 0 ]; then
+            echo "Décompression réussie pour $(basename $TGZ_FILE)."
+        else
+            echo "Erreur lors de la décompression de $(basename $TGZ_FILE)."
+        fi
+    fi
+done
+
+echo "Processus terminé."
