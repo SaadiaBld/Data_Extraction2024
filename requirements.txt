@@ -1,0 +1,12 @@
+pyodbc
+fastapi
+uvicorn[standard]
+pydantic
+azure-identity
+python-dotenv
+azure-storage-blob 
+azure-identity
+pandas
+pyarrow
+requests
+duckdb
