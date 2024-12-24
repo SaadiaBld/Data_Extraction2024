@@ -189,5 +189,16 @@ poetry.toml
 pyrightconfig.json
 
 #Fichiers et dossiers crées pendant l'exécution des scripts
+<<<<<<< HEAD
 config/
 results/
+=======
+db_files/
+parquet_files/
+images/
+essais/
+metadata/
+essais/python_azure.py
+extracted_files/
+./reviews.zip
+>>>>>>> 9bee34439eecf5061e5d21ace71fabf1a555019b
