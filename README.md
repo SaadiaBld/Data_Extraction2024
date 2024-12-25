@@ -8,19 +8,19 @@ Adventure Works, leader dans la vente de vélos et d’équipements cyclistes, e
 
 Ce projet est une preuve de concept (POC) visant à tester la faisabilité de l'extraction et de la gestion de données multisources. 
 L'extraction de données est réalisée à partir de :
+    *un fichier de données plat (CSV).
+    *une base de données relationnelle hébergée dans le cloud (Azure MySQL). 
+    *un système big data.
 
-    Un fichier de données plat (CSV).
-    Une base de données relationnelle hébergée dans le cloud (Azure MySQL).
-    Un système big data.
+## Prérequis
 
-### Prérequis
-
-    Environnement Python :
+Environnement Python :
         Python 3.8 ou plus récent.
-        Installer les dépendances avec :
+
+Installer les dépendances avec :
 
     pip install -r requirements.txt
 
 Accès aux sources de données :
 
-    Configurer les fichiers d'accès (par exemple, .env) pour les connexions aux bases de données.
+    Configurer les fichiers d'accès (un fichier .env par exemple) pour les connexions aux bases de données.
