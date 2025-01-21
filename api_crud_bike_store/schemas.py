@@ -1,14 +1,16 @@
-# modèle SQLAlchemy pour la table Product
-
-from sqlmodel import SQLModel, Field
+# schemas.py
+from pydantic import BaseModel
+from datetime import datetime
 from typing import Optional
-import datetime
 
-class Product(SQLModel, table=True):
-    __tablename__ = "Product"
-    __table_args__ = {"schema": "Production"}
+class ProductResponse(BaseModel):
+    ProductID: int
+    Name: str
 
-    ProductID: int = Field(default=None, primary_key=True)
+    class Config:
+        orm_mode = True
+
+class ProductCreate(BaseModel):
     Name: str
     ProductNumber: str
     MakeFlag: bool
@@ -20,4 +22,7 @@ class Product(SQLModel, table=True):
     DaysToManufacture: Optional[int] = None
     SellStartDate: datetime
     rowguid: Optional[str] = None
-    ModifiedDate: datetime
+    ModifiedDate: datetime = datetime.now()
+
+    class Config:
+        orm_mode = True
